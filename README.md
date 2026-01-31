@@ -18,7 +18,8 @@ A growing set of troubleshooting runbooks, decision trees, and ticket note templ
 - [No Internet](runbooks/no-internet.md)
 
 ## Ticket Notes
-- [Templates](ticket-notes/templates.md)
+- ([Ticket templates](tickets-notes/templates.md)
+
 
 ## How to use
 1. Pick a runbook
