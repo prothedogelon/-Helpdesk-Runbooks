@@ -2,18 +2,27 @@
 Noob help desk runbook + ticket template 
 # Help Desk Runbooks (Tier 1)
 
-Practical troubleshooting runbooks and ticket-note templates designed for entry-level help desk work.
+A growing set of troubleshooting runbooks, decision trees, and ticket note templates built to practice real Tier 1 support workflows.
 
-## What this shows
-- Structured troubleshooting and triage
-- Clear documentation and escalation notes
-- Networking fundamentals (DNS/DHCP/Gateway)
-- Customer-facing communication
+## Why this repo exists
+- Practice structured troubleshooting (not guesswork)
+- Build documentation habits used in real IT teams
+- Prepare for Help Desk / IT Support interviews
 
-## Contents
-- Runbooks (step-by-step)
-- Decision trees
-- Ticket note templates
+## What’s inside
+- **Runbooks:** step-by-step troubleshooting guides  
+- **Decision trees:** fast isolation of root cause  
+- **Ticket note templates:** clean documentation and escalation-ready notes  
+
+## Runbooks
+- [No Internet](runbooks/no-internet.md)
+
+## Ticket Notes
+- [Templates](ticket-notes/templates.md)
 
 ## How to use
-Pick a runbook, follow the checks in order, document results, and verify the fix.
+1. Pick a runbook
+2. Follow checks in order
+3. Record findings like a ticket
+4. Verify fix and document the result
+
