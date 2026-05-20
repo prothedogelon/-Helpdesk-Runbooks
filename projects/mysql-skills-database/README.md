@@ -70,13 +70,9 @@ I slowed down, read the MySQL error output, checked the command structure, corre
 
 SOC analysts and data analysts both need to work with structured data. Even a small SQL project builds the foundation for querying logs, filtering results, understanding datasets, and explaining findings clearly.
 
-## Screenshot
 
-Add screenshot after upload:
 
-```text
-screenshots/mysql-command-line-success.png
-```
+
 
 ## Next Steps
 
