@@ -1,4 +1,4 @@
-# MySQL Skills Database Mini Project
+mmm# MySQL Skills Database Mini Project
 
 ## Objective
 
@@ -82,8 +82,4 @@ SOC analysts and data analysts both need to work with structured data. Even a sm
 - Practice `COUNT()` and basic aggregation
 - Create a second table
 - Practice `JOIN` queries
-- Build a small SOC-style dataset with alerts, users, hosts, and timestamps
-
-## LinkedIn Post Angle
-
-This mini project shows progress in SQL fundamentals, command-line usage, troubleshooting, and technical documentation.
+- Build a small SOC-style dataset with alerts, users, 
