@@ -1,4 +1,4 @@
-mmm# MySQL Skills Database Mini Project
+# MySQL Skills Database Mini Project
 
 ## Objective
 
@@ -70,10 +70,6 @@ I slowed down, read the MySQL error output, checked the command structure, corre
 
 SOC analysts and data analysts both need to work with structured data. Even a small SQL project builds the foundation for querying logs, filtering results, understanding datasets, and explaining findings clearly.
 
-
-
-
-
 ## Next Steps
 
 - Add more realistic data
@@ -82,4 +78,4 @@ SOC analysts and data analysts both need to work with structured data. Even a sm
 - Practice `COUNT()` and basic aggregation
 - Create a second table
 - Practice `JOIN` queries
-- Build a small SOC-style dataset with alerts, users, 
+- Build a small SOC-style dataset with alerts, users, hosts, and timestamps
