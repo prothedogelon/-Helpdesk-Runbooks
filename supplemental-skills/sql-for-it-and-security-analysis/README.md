@@ -4,24 +4,24 @@ This folder contains supplemental SQL practice that supports IT support, SOC ana
 
 This work is kept separate from the main Help Desk runbooks so the repository stays organized and professional.
 
-## Why SQL Belongs Here
+## Purpose
 
-SQL is not a Help Desk runbook by itself, but it supports technical roles that involve structured data, ticket reporting, log review, asset inventory, and analyst workflows.
+This started as beginner SQL practice based on NetworkChuck's SQL beginner tutorial. The original work focused on creating a database, creating a table, inserting rows, viewing data, fixing syntax errors, and learning the difference between `INSERT` and `UPDATE`.
 
-## Skills Practiced
+After completing the tutorial-based portion, I began expanding the same table into a personal career skills tracker. Anything added after the NetworkChuck section is based on my own new practice, planning, and learning.
 
-- Creating databases and tables
+## Skills Practiced So Far
+
+- Creating a database
+- Creating a table
 - Inserting records
-- Querying tables with `SELECT`
-- Filtering with `WHERE`
-- Using `AND`, `OR`, and `IN`
-- Practicing `UPDATE`, `INSERT`, and recovery steps
-- Reading SQL errors
-- Correcting syntax mistakes
-- Using `ALTER TABLE` to expand a dataset
-- Creating SQL views for easier reading
-- Using `GROUP BY`, `COUNT`, `AVG`, `SUM`, and `ORDER BY` for analysis
-- Documenting mistakes, fixes, and project growth
+- Viewing table data with `SELECT`
+- Checking table structure with `DESCRIBE`
+- Using `WHERE` to target specific rows
+- Learning the difference between `INSERT` and `UPDATE`
+- Recovering after an `UPDATE` mistake
+- Expanding a table with additional columns
+- Documenting mistakes and fixes
 
 ## Career Connection
 
@@ -37,33 +37,25 @@ SQL supports:
 
 ## Files
 
-- [`sql/mysql_skills_database.sql`](sql/mysql_skills_database.sql) — MySQL career skills tracker setup, dataset, views, and analysis queries
-- [`sql/analysis_queries.sql`](sql/analysis_queries.sql) — focused analysis queries with plain-English question labels
+- [`sql/mysql_skills_database.sql`](sql/mysql_skills_database.sql) — current SQL script for the skills tracker table
 - [`notes/sql-learning-log-networkchuck-coddy.md`](notes/sql-learning-log-networkchuck-coddy.md) — beginner SQL learning log with mistakes and fixes
-- [`notes/sql-update-insert-recovery-lab.md`](notes/sql-update-insert-recovery-lab.md) — UPDATE/INSERT recovery lab showing how I diagnosed and recovered from a bad update
+- [`notes/sql-update-insert-recovery-lab.md`](notes/sql-update-insert-recovery-lab.md) — UPDATE/INSERT recovery note showing how I diagnosed and recovered from a bad update
 
-## Labs Included
+## Work Completed So Far
 
-### 1. Beginner SQL Learning Log
+### 1. Beginner SQL Practice
 
-Covers basic SQL setup, table creation, inserting data, filtering with `WHERE`, and understanding `AND`, `OR`, and `IN`.
+Created a beginner MySQL table and practiced basic SQL commands such as `CREATE DATABASE`, `USE`, `CREATE TABLE`, `INSERT INTO`, `SELECT`, and `DESCRIBE`.
 
-### 2. SQL Update, Insert, and Recovery Lab
+### 2. Update / Insert Recovery Practice
 
-Documents a realistic mistake: running `UPDATE` without a `WHERE` clause, accidentally changing all rows, then rebuilding the table and learning the difference between `INSERT` and `UPDATE`.
+Documented a mistake where an `UPDATE` command was run without a `WHERE` clause. The work shows what went wrong, why it happened, and how the table was rebuilt.
 
-### 3. Career Skills Tracker Analysis
+### 3. Career Skills Tracker Expansion
 
-Expands the original SQL table into a 25-row career skills tracker with fields for skill, project, target role, rating, assumed training cost, validation source, practice platform, estimated entry-level salary, priority, status, tools needed, and timeframe.
+Expanded the table into a 25-row career skills tracker. The table currently includes fields for skills, projects, target roles, rating, assumed training cost, validation source, practice platform, estimated entry-level salary, priority, status, tools needed, and timeframe.
 
-This turns the project from simple SQL practice into a small analysis dataset that can answer questions such as:
-
-- Which target role has the most projects?
-- Which role has the strongest average skill rating?
-- Which projects are high priority?
-- Which projects are still planned?
-- Which projects are low-cost and high-value based on current assumptions?
-- Which tools show up most often across the roadmap?
+This section is still in progress. The table is being used as a practice dataset before moving into deeper analysis queries.
 
 ## Current Dataset Columns
 
@@ -88,11 +80,12 @@ timeframe
 - `entry_level_salary` values are planning estimates, not guaranteed salaries.
 - `assumed_training_cost` values are low-cost learning estimates, not official prices.
 - `rating` is a self-assessed learning confidence score used for planning.
+- Some projects listed are planned future work, not completed projects yet.
 
 ## Next Steps
 
-- Practice `JOIN`
-- Normalize the table into separate skills, projects, roles, and tools tables
-- Add real job-market salary data later using Indeed or ZipRecruiter research
-- Build a small dashboard from the SQL output
-- Create a short write-up interpreting the query results
+- Practice reading the wider table with smaller `SELECT` statements
+- Run simple analysis queries using `COUNT`, `AVG`, `SUM`, `GROUP BY`, and `ORDER BY`
+- Add screenshots of actual query results after running them locally
+- Create a short write-up explaining what the query results mean
+- Later, practice `JOIN` and table normalization
