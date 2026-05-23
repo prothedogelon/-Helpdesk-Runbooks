@@ -1,16 +1,14 @@
 -- MySQL Career Skills Tracker
--- Purpose: practice SQL while tracking Help Desk, SOC, and Data Analyst portfolio projects.
--- Note: salary and training-cost values are planning estimates, not guaranteed facts.
+-- Purpose: practice SQL while tracking Help Desk, SOC, and Data Analyst learning projects.
+-- Truth note:
+--   The NetworkChuck tutorial portion is complete.
+--   Anything added after that is new practice/planning, not a claim of completed real-world work.
+--   Salary and training-cost values are planning estimates, not guaranteed facts.
 
 SHOW DATABASES;
 
 CREATE DATABASE IF NOT EXISTS tech_goals_project;
 USE tech_goals_project;
-
-DROP VIEW IF EXISTS core_tracker;
-DROP VIEW IF EXISTS project_plan;
-DROP VIEW IF EXISTS salary_tracker;
-DROP VIEW IF EXISTS role_summary;
 
 DROP TABLE IF EXISTS tech_goalsasanoob;
 
@@ -61,62 +59,19 @@ VALUES
 (24, 'data analytics', 'case study project', 'data analyst', 2.5, 0.00, 'Google Data Analytics', 'Google/Coursera', 55000.00, 'Medium', 'Planned', 'Google/Coursera, dataset', '1-2 weeks'),
 (25, 'business intelligence', 'dashboard portfolio', 'data analyst', 2.5, 0.00, 'Maven Analytics Project', 'Maven Analytics', 60000.00, 'Medium', 'Planned', 'Maven Analytics, BI tool', '2-3 weeks');
 
--- Safer viewing: use focused views instead of SELECT * once the table becomes wide.
-CREATE VIEW core_tracker AS
-SELECT id, skill, project, title, rating, priority, status
-FROM tech_goalsasanoob;
-
-CREATE VIEW project_plan AS
-SELECT id, skill, project, tools_needed, timeframe, priority, status
-FROM tech_goalsasanoob;
-
-CREATE VIEW salary_tracker AS
-SELECT id, skill, title, rating, assumed_training_cost, entry_level_salary
-FROM tech_goalsasanoob;
-
-CREATE VIEW role_summary AS
-SELECT
-  title,
-  COUNT(*) AS project_count,
-  ROUND(AVG(rating), 2) AS avg_rating,
-  ROUND(AVG(entry_level_salary), 2) AS avg_entry_level_salary,
-  SUM(assumed_training_cost) AS total_assumed_training_cost
-FROM tech_goalsasanoob
-GROUP BY title;
-
--- Core checks.
-SELECT * FROM core_tracker ORDER BY id;
-SELECT * FROM project_plan ORDER BY id;
-SELECT * FROM salary_tracker ORDER BY entry_level_salary DESC, rating DESC;
-SELECT * FROM role_summary ORDER BY project_count DESC;
-
--- Analysis questions.
--- 1. Which target role has the most projects?
-SELECT title, COUNT(*) AS project_count
-FROM tech_goalsasanoob
-GROUP BY title
-ORDER BY project_count DESC;
-
--- 2. Which target role has the highest average rating?
-SELECT title, ROUND(AVG(rating), 2) AS avg_rating
-FROM tech_goalsasanoob
-GROUP BY title
-ORDER BY avg_rating DESC;
-
--- 3. What high-priority projects should be worked first?
+-- Current table snapshot.
 SELECT id, skill, project, title, rating, priority, status
 FROM tech_goalsasanoob
-WHERE priority = 'High'
-ORDER BY title, rating DESC;
+ORDER BY id;
 
--- 4. What planned projects still need work?
-SELECT id, skill, project, title, timeframe, tools_needed
+-- Wider planning view.
+SELECT id, skill, project, tools_needed, timeframe
 FROM tech_goalsasanoob
-WHERE status = 'Planned'
-ORDER BY title, timeframe;
+ORDER BY id;
 
--- 5. Which projects look like low-cost, high-value practice?
-SELECT id, skill, project, title, rating, assumed_training_cost, entry_level_salary
-FROM tech_goalsasanoob
-WHERE rating >= 3.0
-ORDER BY assumed_training_cost ASC, entry_level_salary DESC;
+-- Future analysis practice ideas:
+-- 1. Count projects by title using COUNT and GROUP BY.
+-- 2. Average ratings by title using AVG and GROUP BY.
+-- 3. Filter high-priority projects with WHERE.
+-- 4. Sort projects by rating or salary using ORDER BY.
+-- 5. Practice views only after the SELECT queries make sense.
