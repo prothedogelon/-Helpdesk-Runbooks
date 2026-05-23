@@ -1,33 +1,122 @@
--- MySQL Skills Database Mini Project
--- Purpose: Practice creating a database, table, inserting records, and querying data.
+-- MySQL Career Skills Tracker
+-- Purpose: practice SQL while tracking Help Desk, SOC, and Data Analyst portfolio projects.
+-- Note: salary and training-cost values are planning estimates, not guaranteed facts.
 
 SHOW DATABASES;
 
 CREATE DATABASE IF NOT EXISTS tech_goals_project;
-
 USE tech_goals_project;
 
-DROP TABLE IF EXISTS tech_goalsreason;
+DROP VIEW IF EXISTS core_tracker;
+DROP VIEW IF EXISTS project_plan;
+DROP VIEW IF EXISTS salary_tracker;
+DROP VIEW IF EXISTS role_summary;
 
-CREATE TABLE tech_goalsreason (
+DROP TABLE IF EXISTS tech_goalsasanoob;
+
+CREATE TABLE tech_goalsasanoob (
   id INT,
   skill VARCHAR(255),
   project VARCHAR(255),
-  title VARCHAR(255)
+  title VARCHAR(255),
+  rating DECIMAL(2,1),
+  assumed_training_cost DECIMAL(8,2),
+  knowledge_validation VARCHAR(255),
+  verification_platform VARCHAR(255),
+  entry_level_salary DECIMAL(10,2),
+  priority VARCHAR(50),
+  status VARCHAR(50),
+  tools_needed VARCHAR(255),
+  timeframe VARCHAR(50)
 );
 
-SHOW TABLES;
+DESCRIBE tech_goalsasanoob;
 
-DESCRIBE tech_goalsreason;
-
-INSERT INTO tech_goalsreason
+INSERT INTO tech_goalsasanoob
+(id, skill, project, title, rating, assumed_training_cost, knowledge_validation, verification_platform, entry_level_salary, priority, status, tools_needed, timeframe)
 VALUES
-  (1, 'Splunk', 'SIEM lab', 'SOC Analyst');
+(1, 'sql', 'sql filtering workflow', 'data analyst', 3.0, 0.00, 'HackerRank SQL / DataCamp SQL', 'MySQL Lab', 55000.00, 'High', 'In Progress', 'MySQL, Terminal', '1-3 days'),
+(2, 'sql', 'target workflow', 'data analyst', 3.5, 0.00, 'HackerRank SQL / DataCamp SQL', 'MySQL Lab', 55000.00, 'High', 'In Progress', 'MySQL, Terminal', '1-3 days'),
+(3, 'wireshark', 'packet analysis lab', 'soc analyst', 3.5, 0.00, 'Wireshark Lab / Network+', 'Wireshark Lab', 60000.00, 'High', 'In Progress', 'Wireshark, PCAP file', '3-7 days'),
+(4, 'splunk', 'failed login search', 'soc analyst', 3.0, 0.00, 'Splunk Core User / CySA+', 'Splunk Lab', 65000.00, 'High', 'In Progress', 'Splunk, sample logs', '5-10 days'),
+(5, 'linux', 'command-line practice', 'help desk', 2.0, 0.00, 'A+ / Linux Lab', 'OverTheWire', 45000.00, 'Medium', 'Needs Practice', 'Linux VM, Terminal', '1-3 days'),
+(6, 'excel', 'kpi tracker', 'data analyst', 3.0, 0.00, 'Excel Associate / Maven Analytics', 'Excel Project', 55000.00, 'High', 'In Progress', 'Excel, sample data', '3-7 days'),
+(7, 'networking', 'subnetting practice', 'networking technician', 3.0, 0.00, 'Network+ / CCNA', 'Packet Tracer', 55000.00, 'High', 'In Progress', 'Packet Tracer, subnet calculator', '3-7 days'),
+(8, 'ticketing', 'password reset documentation', 'help desk', 2.0, 0.00, 'A+ / Help Desk Lab', 'osTicket Lab', 45000.00, 'Medium', 'Needs Practice', 'osTicket, runbook template', '1-3 days'),
+(9, 'active directory', 'user account troubleshooting', 'help desk', 2.5, 0.00, 'A+ / Windows Admin Lab', 'AD Home Lab', 50000.00, 'Medium', 'Needs Practice', 'Windows Server, AD lab', '3-5 days'),
+(10, 'security logs', 'login event review', 'soc analyst', 3.0, 0.00, 'Security+ / CySA+', 'Windows Logs', 60000.00, 'High', 'In Progress', 'Windows logs, Event Viewer', '3-7 days'),
+(11, 'splunk', 'dashboard', 'soc analyst', 3.5, 25.00, 'Splunk Core User', 'Splunk Dashboard', 65000.00, 'High', 'In Progress', 'Splunk, dashboard panels', '5-10 days'),
+(12, 'tableau', 'data literacy', 'data analyst', 3.0, 0.00, 'Tableau Desktop Specialist', 'Tableau Public', 55000.00, 'Medium', 'In Progress', 'Tableau Public, dataset', '3-7 days'),
+(13, 'tableau', 'visual design', 'data analyst', 3.0, 0.00, 'Tableau Desktop Specialist', 'Tableau Public', 55000.00, 'Medium', 'In Progress', 'Tableau Public, dataset', '3-7 days'),
+(14, 'splunk', 'soar automation', 'soc analyst', 3.5, 25.00, 'Splunk SOAR / CySA+', 'Splunk SOAR', 65000.00, 'Medium', 'Planned', 'Splunk SOAR, playbook notes', '2-4 weeks'),
+(15, 'splunk', 'network health checker', 'soc analyst', 3.5, 25.00, 'Splunk Core User / Network+', 'Zeek / Splunk', 60000.00, 'Medium', 'Planned', 'Splunk, Zeek, Wireshark', '1-2 weeks'),
+(16, 'splunk', 'brute force monitoring', 'soc analyst', 3.5, 25.00, 'Splunk Core User / CySA+', 'Splunk Alerts', 65000.00, 'High', 'In Progress', 'Splunk, auth logs', '5-10 days'),
+(17, 'splunk', 'privilege escalation monitoring', 'soc analyst', 3.5, 25.00, 'Sysmon / CySA+', 'Sysmon Logs', 65000.00, 'Medium', 'Planned', 'Sysmon, Splunk, Windows logs', '1-2 weeks'),
+(18, 'splunk', 'cloud audit trail security analytics', 'soc analyst', 3.5, 25.00, 'CloudTrail / Security+', 'CloudTrail', 65000.00, 'Medium', 'Planned', 'CloudTrail, Splunk', '1-2 weeks'),
+(19, 'splunk', 'boss of the soc', 'soc analyst', 4.0, 50.00, 'Boss of the SOC', 'Boss of the SOC', 65000.00, 'High', 'In Progress', 'Boss of the SOC dataset', '2-4 weeks'),
+(20, 'splunk', 'sysmon optimization', 'soc analyst', 3.5, 25.00, 'Sysmon / Splunk Core User', 'Sysmon / Splunk', 65000.00, 'Medium', 'Planned', 'Sysmon, config file, Splunk', '1-2 weeks'),
+(21, 'power bi', 'sales dashboard', 'data analyst', 2.5, 0.00, 'PL-300', 'Power BI', 60000.00, 'High', 'Planned', 'Power BI, dataset', '1-3 weeks'),
+(22, 'excel', 'pivot table analysis', 'data analyst', 3.0, 0.00, 'Excel Associate', 'Excel Project', 55000.00, 'High', 'In Progress', 'Excel, pivot tables', '3-7 days'),
+(23, 'sql', 'query challenge practice', 'data analyst', 3.0, 0.00, 'HackerRank SQL', 'HackerRank SQL', 55000.00, 'High', 'In Progress', 'HackerRank, MySQL', '1-3 days'),
+(24, 'data analytics', 'case study project', 'data analyst', 2.5, 0.00, 'Google Data Analytics', 'Google/Coursera', 55000.00, 'Medium', 'Planned', 'Google/Coursera, dataset', '1-2 weeks'),
+(25, 'business intelligence', 'dashboard portfolio', 'data analyst', 2.5, 0.00, 'Maven Analytics Project', 'Maven Analytics', 60000.00, 'Medium', 'Planned', 'Maven Analytics, BI tool', '2-3 weeks');
 
-SELECT * FROM tech_goalsreason;
+-- Safer viewing: use focused views instead of SELECT * once the table becomes wide.
+CREATE VIEW core_tracker AS
+SELECT id, skill, project, title, rating, priority, status
+FROM tech_goalsasanoob;
 
--- Next practice ideas:
--- 1. Add more rows for MySQL, Wireshark, Linux, and Excel.
--- 2. Use WHERE to filter by skill.
--- 3. Use ORDER BY to sort results.
--- 4. Add a second table and practice JOIN queries.
+CREATE VIEW project_plan AS
+SELECT id, skill, project, tools_needed, timeframe, priority, status
+FROM tech_goalsasanoob;
+
+CREATE VIEW salary_tracker AS
+SELECT id, skill, title, rating, assumed_training_cost, entry_level_salary
+FROM tech_goalsasanoob;
+
+CREATE VIEW role_summary AS
+SELECT
+  title,
+  COUNT(*) AS project_count,
+  ROUND(AVG(rating), 2) AS avg_rating,
+  ROUND(AVG(entry_level_salary), 2) AS avg_entry_level_salary,
+  SUM(assumed_training_cost) AS total_assumed_training_cost
+FROM tech_goalsasanoob
+GROUP BY title;
+
+-- Core checks.
+SELECT * FROM core_tracker ORDER BY id;
+SELECT * FROM project_plan ORDER BY id;
+SELECT * FROM salary_tracker ORDER BY entry_level_salary DESC, rating DESC;
+SELECT * FROM role_summary ORDER BY project_count DESC;
+
+-- Analysis questions.
+-- 1. Which target role has the most projects?
+SELECT title, COUNT(*) AS project_count
+FROM tech_goalsasanoob
+GROUP BY title
+ORDER BY project_count DESC;
+
+-- 2. Which target role has the highest average rating?
+SELECT title, ROUND(AVG(rating), 2) AS avg_rating
+FROM tech_goalsasanoob
+GROUP BY title
+ORDER BY avg_rating DESC;
+
+-- 3. What high-priority projects should be worked first?
+SELECT id, skill, project, title, rating, priority, status
+FROM tech_goalsasanoob
+WHERE priority = 'High'
+ORDER BY title, rating DESC;
+
+-- 4. What planned projects still need work?
+SELECT id, skill, project, title, timeframe, tools_needed
+FROM tech_goalsasanoob
+WHERE status = 'Planned'
+ORDER BY title, timeframe;
+
+-- 5. Which projects look like low-cost, high-value practice?
+SELECT id, skill, project, title, rating, assumed_training_cost, entry_level_salary
+FROM tech_goalsasanoob
+WHERE rating >= 3.0
+ORDER BY assumed_training_cost ASC, entry_level_salary DESC;
