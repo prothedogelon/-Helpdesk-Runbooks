@@ -8,7 +8,7 @@ This work is kept separate from the main Help Desk runbooks so the repository st
 
 This started as beginner SQL practice based on NetworkChuck's SQL beginner tutorial. The original work focused on creating a database, creating a table, inserting rows, viewing data, fixing syntax errors, and learning the difference between `INSERT` and `UPDATE`.
 
-After completing the tutorial-based portion, I began expanding the same table into a personal career skills tracker. Anything added after the NetworkChuck section is based on my own new practice, planning, and learning.
+After completing the tutorial-based portion, I began expanding the same table into personal practice labs, including a career skills tracker and a Kali Linux SQL lab.
 
 ## Skills Practiced So Far
 
@@ -20,6 +20,10 @@ After completing the tutorial-based portion, I began expanding the same table in
 - Using `WHERE` to target specific rows
 - Learning the difference between `INSERT` and `UPDATE`
 - Recovering after an `UPDATE` mistake
+- Running SQL/MariaDB inside Kali Linux
+- Checking database service status on Linux
+- Creating multiple related tables
+- Planning relational table connections
 - Expanding a table with additional columns
 - Documenting mistakes and fixes
 
@@ -34,12 +38,14 @@ SQL supports:
 - Security investigations
 - Data analyst fundamentals
 - Career planning and skills tracking
+- Linux-based lab practice
 
 ## Files
 
 - [`sql/mysql_skills_database.sql`](sql/mysql_skills_database.sql) — current SQL script for the skills tracker table
 - [`notes/sql-learning-log-networkchuck-coddy.md`](notes/sql-learning-log-networkchuck-coddy.md) — beginner SQL learning log with mistakes and fixes
 - [`notes/sql-update-insert-recovery-lab.md`](notes/sql-update-insert-recovery-lab.md) — UPDATE/INSERT recovery note showing how I diagnosed and recovered from a bad update
+- [`notes/kali-linux-sql-lab-setup-relational-tables.md`](notes/kali-linux-sql-lab-setup-relational-tables.md) — Kali Linux SQL/MariaDB setup lab with relational table planning
 
 ## Work Completed So Far
 
@@ -56,6 +62,10 @@ Documented a mistake where an `UPDATE` command was run without a `WHERE` clause.
 Expanded the table into a 25-row career skills tracker. The table currently includes fields for skills, projects, target roles, rating, assumed training cost, validation source, practice platform, estimated entry-level salary, priority, status, tools needed, and timeframe.
 
 This section is still in progress. The table is being used as a practice dataset before moving into deeper analysis queries.
+
+### 4. Kali Linux SQL Lab Setup
+
+Moved SQL practice into a Kali Linux lab. This included checking the MariaDB/MySQL service, getting SQL running in the Linux terminal, creating a main `tax_dept` table, adding two related tables, confirming the tables, and preparing generated lab data for relational practice.
 
 ## Current Dataset Columns
 
@@ -81,6 +91,7 @@ timeframe
 - `assumed_training_cost` values are low-cost learning estimates, not official prices.
 - `rating` is a self-assessed learning confidence score used for planning.
 - Some projects listed are planned future work, not completed projects yet.
+- Generated SQL records are lab data for practice, not real tax records.
 
 ## Next Steps
 
@@ -88,4 +99,5 @@ timeframe
 - Run simple analysis queries using `COUNT`, `AVG`, `SUM`, `GROUP BY`, and `ORDER BY`
 - Add screenshots of actual query results after running them locally
 - Create a short write-up explaining what the query results mean
-- Later, practice `JOIN` and table normalization
+- Practice `JOIN` queries between the tax department tables
+- Later, practice table normalization with primary keys and foreign keys
